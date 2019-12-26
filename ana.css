@@ -259,8 +259,25 @@ header {
 #gondersorubtn {
   width: 100px;
   height: 30px;
-  margin-left: 50%;
   margin-top: 3%;
+  visibility: hidden;
+}
+#kontrolsorubtn {
+  width: 100px;
+  height: 30px;
+  margin-left: 43%;
+}
+.sorubutton {
+  font-size: 1vw;
+  background-color: rgb(160,0,0);
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+.sorubutton:hover {
+  background-color:BLACK;
+  color: aquamarine;
+  cursor: pointer;
 }
 /*ÖzGeçmiş*/
 #CV {
@@ -302,6 +319,7 @@ header {
 .cvbutton:hover {
   background-color:BLACK;
   color: aquamarine;
+  cursor: pointer;
 }
 #duzenlebtn{
   width: 100px;
@@ -447,4 +465,12 @@ footer {
 footer a {
   text-decoration: none;
   color: white;
+}
+.mainicon {
+  width: 60px;
+  height: 50px;
+  padding-left: 10px;
+}
+#instagram1 {
+  width: 80px;
 }

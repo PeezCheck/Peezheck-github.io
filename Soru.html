@@ -4,18 +4,13 @@
     <link href="ana.css" type="text/css" rel="stylesheet">
     <script src="jquery.js"></script>
     <script>
-     /*function kontrolsoru()
+     function kontrolsoru()
         { 
            var a =document.getElementById("soruad").value;
-           var x =document.getElementById("soruad").value;
            var b =document.getElementById("sorusoyad").value;
-           var y =document.getElementById("sorusoyad").value;
            var c =document.getElementById("sorutelefon").value;
-           var z =document.getElementById("sorutelefon").value;
            var d=document.getElementById("soruemail").value;
-           var i=document.getElementById("soruemail").value;
            var e=document.getElementById("sorusoru").value;
-           var j=document.getElementById("sorusoru").value;
            var letters = /^[A-Za-z]+$/;  
            var mail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
            if(a.length==0)
@@ -38,6 +33,10 @@
             {
                 alert("Telefon no bos gecilemez !");
             }
+            else if(c.length<11 ||c.length>11)
+            {
+                alert("Eksik veya fazla giriş yaptınız!");
+            }
             else if(d.length==0)
             {
                  alert("E-mail bos gecilemez !");
@@ -50,18 +49,17 @@
             {
                 alert("Sorunuzu Yazmadınız !");
             }
-            
+            else
             {
-                alert("girdimtext");
-                document.getElementById("soruad").text=x;
                 geriyukle();
             }
         }
         function geriyukle() {
-        document.getElementById("gondersorubtn").disabled="false";
-        document.getElementById("gondersorubtn").style.opacity="1";
-        document.getElementById("gondersorubtn").style.cursor="default";
-        }*/
+        document.getElementById("gondersorubtn").style.visibility="visible";
+        document.getElementById("kontrolsorubtn").style.opacity="0.4";
+        document.getElementById("kontrolsorubtn").style.cursor="not-allowed";
+        document.getElementById("kontrolsorubtn").disabled="true";
+        }
     
     </script>
     
@@ -81,23 +79,23 @@
            
             <tr class="sorusatır">
                 <td class=sorusutun> Adınız:</td>
-                <td class=sorusutun><input  id="soruad" type="text" name="Kullanici Ad" > </td>
+                <td class=sorusutun><input  id="soruad" type="text" name="Kullanici Ad" autocomplete=""> </td>
             </tr>
             <tr class="sorusatır">
                 <td class=sorusutun>Soyadınız:</td>
-                <td class=sorusutun><input id="sorusoyad" type="text" name="Kullanici Soyad" > </td>
+                <td class=sorusutun><input id="sorusoyad" type="text" name="Kullanici Soyad" autocomplete=""> </td>
             </tr>
             <tr class="sorusatır">
                 <td class=sorusutun>Doğum Tarihiniz:</td>
-                <td class=sorusutun> <input  id="sorudtarih" type="date" name="Kullanici Dogum Tarihi"></td>
+                <td class=sorusutun> <input  id="sorudtarih" type="text" name="Kullanici Dogum Tarihi" placeholder="GGAAYYYY" autocomplete=""></td>
             </tr>
              <tr class="sorusatır">
                 <td class=sorusutun>Telefon: </td>
-                <td class=sorusutun><input id="sorutelefon" type="number" name="Kullanici Telefon" ></td>
+                <td class=sorusutun><input id="sorutelefon" type="number" name="Kullanici Telefon" placeholder="05xx xxx xx xx" autocomplete=""></td>
             </tr>
             <tr class="sorusatır">
                 <td class=sorusutun>E-mail:</td>
-                <td class=sorusutun> <input id="soruemail" type="email" name="Kullanici E-mail"> </td>
+                <td class=sorusutun> <input id="soruemail" type="text" name="Kullanici E-mail" placeholder="xxxxxxx@xxx.xxx" autocomplete> </td>
             </tr>
             <tr class="sorusatır">
                 <td class=sorusutun>Soru:</td>
@@ -105,10 +103,9 @@
             </tr>
            
             </table>
-           
-           <!--<button id="kontrolsorubtn" class="cvbutton" onclick="kontrolsoru();">Kontrol</button>
-            <button id="gondersorubtn" class="cvbutton" >Gönder</button>-->
-            <input id="gondersorubtn" class="cvbutton" type="submit" value="Gönder" >
+           <input id="kontrolsorubtn" class="sorubutton" type="button" value="Kontrol" onclick="kontrolsoru();">
+            <!--<input id="gondersorubtn" class="cvbutton" type="submit" value="Gönder">-->
+            <button id="gondersorubtn" class="sorubutton" type="submit">Gönder</button>
         </fieldset>
     </form>
 
@@ -117,7 +114,7 @@
         <div class="footeric"><b>İletişim</b> <br /> <br /> 
             E-mail:akinbalturk@hotmail.com <br />
             <br />Telefon:+905413018593 <br /> <br />
-            Adres:Yazlık Yeni Mahalle Estergon Caddesi No:14 <br />Kocaeli/Gölcük <br /> <br /> <a class="hrefsoru" href="Soru.html">Soru
+            Adres:Xxxxxx xxxx xxxxxxx xxxxxxxx xxxxxxx No:14 <br />Kocaeli/Gölcük <br /> <br /> <a class="hrefsoru" href="Soru.html">Soru
                 Sormak İçin Tıklayınız</a> </div>
         <div class="footeric"><b>Bilgilendirme</b> <br /> <br /> Bu Site Akın Baltürk Tarafından Proje Amaçlı
             Yapılmıştır. <br /> <br />© No Copyright 2019</div>
