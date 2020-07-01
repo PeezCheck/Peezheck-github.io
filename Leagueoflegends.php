@@ -1,0 +1,57 @@
+<?php
+
+?>
+<html>
+    <head>
+        <title>League Of Legends</title>
+        <link href="ana.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+    </br>
+    <header>
+        <div class="headerlogo"><a href="index.php"><img class="logo" src="Resimler/logo.jpg"></a></div>
+        <div class="headerbaslik">
+            <h1>Akın Baltürk Kişisel Web Sitesi</h1>
+        </div>
+    </header> </br> <br /> <br />
+    <div class="videodiv">
+        <div class="lol2div" id="lollogo">
+           <a href="https://tr.leagueoflegends.com/tr/" target="_blank"><img  class="gamelogo" src="Resimler/lollogo.jpg" width="90%" height="30%"></a>
+            <div style="padding-top: 20px;">
+                League Of Legends<br/> 27 Ekim 2009 Yılında Çıkmış.MOBA Tarzında bir oyundur.140'tan fazla şampiyon ve 3 farklı oyun modu ile sizleri bekliyor. <br/> <br/>
+                <a class="gamelink" href="https://tr.leagueoflegends.com/tr/" target="_blank"> Oyunun Sitesine Gitmek için Tıklayınız</a>
+
+            </div>
+        </div>
+        <div class="lol2div" id="lolvideo">
+            <video data-v-308c8a30="" controls="controls" id="myVideo" width="90%" height="90%" >
+                <source data-v-308c8a30="" src="https://ia601405.us.archive.org/29/items/lol_20191221/lol.mp4" type="video/webm">
+                    Üzgünüm. Tarayıcınız Video Desteklemiyor.
+            </video>
+        </div>
+        
+    </div>
+    <hr class="cizgigame">
+    <footer>
+        <div class="footeric"><b>İletişim</b> <br /> <br /> 
+            E-mail:akinbalturk@hotmail.com <br />
+            <br />Telefon:+905xxxxxxxxx <br /> <br />
+            Adres:Xxxxxx xxxx xxxxxxx xxxxxxx xxxxxx <br />xxxxxx/Xxxxxx <br /> <br /> <a class="hrefsoru" href="Soru.html">Soru
+                Sormak İçin Tıklayınız</a> </div>
+        <div class="footeric"><b>Bilgilendirme</b> <br /> <br /> Bu Site Akın Baltürk Tarafından Proje Amaçlı
+            Yapılmıştır. <br /> <br />© No Copyright 2019  <br /> <br />
+            <a href="https://www.instagram.com/akinbalturkk/" target="_blank"><img class="mainicon" id="instagram1" src="Resimler/instagram.png" ></a>
+            <a href="https://www.facebook.com/akinbalturkk" target="_blank"><img class="mainicon"  src="Resimler/facebook.png" ></a>
+            <a href="https://twitter.com/Aknbaltrk" target="_blank"><img class="mainicon" src="Resimler/twitter.png" ></a>
+        </div>
+        <div class="footeric"><b>Site İçinceki Sekmelere buradan ulaşabilirsiniz</b>  <br /> <br /> <a href="index.php">Anasayfa</a> <br/> <br/> <a
+                href="Misyon.php">Misyon</a> <br /> <br />
+            <a href="Vizyon.php">Vizyon</a> <br /> <br /> <a href="Ozgecmis.php">Öz Geçmiş</a> <br /> <br /><a
+                href="Sosyalmedya.php">Sosyal Medya</a> <br /> <br />
+            <a href="Soru.php">Soru</a> <br /> </div>
+
+    </footer>
+
+
+    </body>
+</html>

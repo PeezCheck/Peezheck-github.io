@@ -1,0 +1,253 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "PeezCheck61.";
+$dbname = "peezcheck";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+<html>
+
+<head>
+    <title>Anasayfa</title>
+    <link href="ana.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="jquery.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+    <script>
+
+        var openmodal = function () {
+            Modal.open({
+                content: '<strong>Default modal!</strong>< br /> Testing the modal.< br /> <br />Loreum ipsum dolorem the quick brown fox jumped over the lazy dog.< br /> <br />Yes its true.',
+                draggable: true,
+                openCallback: function () {
+                    alert('This is an example of the use of openCallback');
+                }
+            });
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload=" showSlides(1);">
+    </br>
+    <header>
+        <div class="headerlogo"><a href="index.php"><img class="logo" src="Resimler/logo.jpg"></a></div>
+        <div class="headerbaslik">
+            <h1>Akın Baltürk Kişisel Web Sitesi</h1>
+        </div>
+    </header> </br> <br /> <br />
+
+    <ul id=menu>
+        <li class="anamenu">
+            <a id="anasayfa" href="index.php">Anasayfa</a>
+        </li>
+        <li class="anamenu">
+            <a class="hakkimda" href="#">Hakkımda</a>
+            <ul class="menualt">
+                <li class="altmenu"><a class="hakkimda" href="Misyon.php">Misyon</a></li>
+                <li class="altmenu"><a class="hakkimda" href="Vizyon.php">Vizyon</a></li>
+                <li class="altmenu"><a class="hakkimda" href="Ozgecmis.php">Özgeçmiş</a></li>
+            </ul>
+        </li>
+        <li class="anamenu">
+            <a class="iletisim" href="#">İletişim</a>
+            <ul class="menualt">
+                <li class="altmenu"><a class="iletisim" href="Sosyalmedya.php">Sosyal Medya</a></li>
+                <li class="altmenu"><a class="iletisim" href="Soru.php" >Soru</a></li>
+            </ul>
+        </li>
+        <li class="anamenu">
+            <a class="oyunlar" href="#">Oyunlar</a>
+            <ul class="menualt">
+                <li class="altmenu"><a class="oyunlar" href="Leagueoflegends.php">League Of Legends</a></li>
+                <li class="altmenu"><a class="oyunlar" href="Apexlegends.php">Apex Legends</a></li>
+            </ul>
+        </li>
+        <li class="anamenu">
+        <?php
+            if(empty($_SESSION["logged"])) {
+                ?>
+            <a href="loginpage.php" style=" margin-left:543px ;display: block;color:white;text-align: center;width: 140px;height: 100%;padding-top: 25px;text-decoration: none;position: relative;">Giriş Yap</a>
+            <?php
+            }?>
+            <?php
+            if ($_SESSION["logged"] == "false") {
+                ?>
+            <a href="loginpage.php" style=" margin-left:543px ;display: block;color:white;text-align: center;width: 140px;height: 100%;padding-top: 25px;text-decoration: none;position: relative;">Giriş Yap</a>
+            <?php
+            }?>
+
+            
+            <?php
+            if ($_SESSION["logged"] == "true") {
+                ?>
+                
+                <a href="logout.php" style=" margin-left:485px;margin-bottom:100px;display: block;color:white;text-align: center;width: 200px;height: 100%;padding-top: 25px;text-decoration: none;position: relative;"><label><?php echo ($_SESSION["kullanici_ad"] . " " . $_SESSION["kullanici_soyad"]) ?></label></a>
+                
+                
+                <?php
+                }
+               ?>
+        </li>
+    </ul>
+
+    <br /> <br /> <br />
+    <div id="haberler" class="num">
+        <div class="slideshow-container"> <!-- https://www.w3schools.com/howto/howto_js_slideshow.asp-->
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <a href="https://nexus.leagueoflegends.com/tr-tr/2019/12/dev-all-about-riot-forge/" target="_blank">
+                    <img class="haberlerimg" src="Resimler/lolforge.jpg" style="width:100%"></a>
+                <div class="text">League Of Legends Riot Forge</div>
+            </div>
+
+            <div class="mySlides fade">
+                <a href="https://www.ea.com/games/apex-legends/news/mirages-holoday-bash-event?isLocalized=true" targe="_blank">
+                    <img class="haberlerimg" src="Resimler/apexholodaybash.jpg" style="width:100%"> </a>
+                <div class="text"> Apex Legends Holo-Bash Event</div>
+            </div>
+
+            <div class="mySlides fade">
+                <a href="https://tr.leagueoflegends.com/tr/news/game-updates/features/yil-sonu-prestij-magazasi-acildi" target="_blank">
+                    <img class="haberlerimg" src="Resimler/lolprestij.jpg" style="width:100%"> </a>
+                <div class="text">League Of Legends Prestij Magazasi</div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+    <div id="duyurular" class="num"> <!--https://jquerymodal.com/-->
+        <div class="duyurudiv" id="duyurudiv1">League of Legends'ın Yeni Yaması<br /> <a href="#modal1" rel="modal:open">Devamı...</a> </div>
+        <div id="modal1" class="modal">
+            <p>Hey League Of Legends Oyuncusu  <br/> <br/> 
+                League Of Legendsin 9.24 Yaması Çıktı! <br/> <br/>
+                Yeni Hero Yeni Skinler <br/> <br/>
+                Güçlendirmeler ve Zayıflatmalar<br/> <br/>
+                Hepsini inclemek için Sitemizi Ziyaret Et  <br/> <br/>
+                <a href="https://tr.leagueoflegends.com/tr/" target="_blank">Git</a> <br/><br/></p>
+            <a href="#" rel="modal:close">Kapat</a>
+          </div>
+        <div class="duyurudiv">Apex Legends Yeni Şampiyonu Çıktı<br /> <a href="#modal2" rel="modal:open">Devamı...</a></div>
+        <div id="modal2" class="modal">
+            <p>Hey Apex Legends Oyuncusu<br/> <br/>
+                Apex Legends Sezon 3 Meltdowm ile <br/> <br/>
+                Birlikte seni bekliyor<br/> <br/>
+                Neler mi var Neler yok ki Yeni Hero Wattson <br/> <br/>
+                Harita değişiklikleri ve dahası <br/> <br/>
+                Hepsini incelemek için sitemizi ziyaret et <br/> <br/>
+                <a href="https://www.ea.com/games/apex-legends?isLocalized=true" target="_blank">Git</a> <br/> <br/></p>
+            <a href="#" rel="modal:close">Kapat</a>
+          </div>
+        <div class="duyurudiv">Oyun Dünyasına Yeni bir oyun<br /> <a href="#modal3" rel="modal:open">Devamı...</a></div>
+        <?php
+            $sql = "SELECT * FROM duyurular";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+            
+                while($row = $result->fetch_assoc()) {
+                    ?>
+            <div class="duyurudiv"><?php echo $row["duyuru_baslik"] ?></br><a href="#modal<?php echo $row["duyuru_id"]+3 ?>" rel="modal:open">Devamı...</a></div>
+            <div id="modal<?php echo $row["duyuru_id"]+3 ?>" class="modal">
+            <p><?php echo $row["duyuru_text"] ?></p> 
+            <a href="#" rel="modal:close">Kapat</a>
+            </div>
+            <?php
+                            }
+                            
+                        } 
+                        else {
+                        }
+                        
+                        $conn->close();
+                        ?>
+        
+        <div id="modal3" class="modal">
+            <p>Hey Oyun Sever Nasılsın ?  <br/> <br/>
+                Umarım iyisindir ama iyi değilsende sana çok iyi gelicek bi haberimiz var <br/> <br/>
+                Seni yepyeni oyunumuz FRQZ ile tanıştıralım yepyeni bir oyun<br/> <br/>
+                Oynamak istersen linke tıklaman yeterli <br/><br/>
+                <a href="#"></a> <br/> </p> 
+            <a href="#" rel="modal:close">Kapat</a>
+          </div>
+
+
+    </div>
+    <div id=gotopdiv><a href="index.php"> <button id="gotopbtn" class="cvbutton">Yukarı Git</button></a></div>
+    
+    <hr class="cizgi">
+    <footer>
+        <div class="footeric"><b>İletişim</b> <br /> <br /> 
+            E-mail:akinbalturk@hotmail.com <br />
+            <br />Telefon:+905xxxxxxxxx <br /> <br />
+            Adres:Xxxxxx xxxx xxxxxxx xxxxxxx xxxxxx <br />xxxxxx/Xxxxxx<br /> <br /> <a class="hrefsoru" href="Soru.html">Soru
+                Sormak İçin Tıklayınız</a> </div>
+        <div class="footeric"><b>Bilgilendirme</b> <br /> <br /> Bu Site Akın Baltürk Tarafından Proje Amaçlı
+            Yapılmıştır. <br /> <br />© No Copyright 2019 <br /> <br />
+            <a href="https://www.instagram.com/akinbalturkk/" target="_blank"><img class="mainicon" id="instagram1" src="Resimler/instagram.png" ></a>
+            <a href="https://www.facebook.com/akinbalturkk" target="_blank"><img class="mainicon"  src="Resimler/facebook.png" ></a>
+            <a href="https://twitter.com/Aknbaltrk" target="_blank"><img class="mainicon" src="Resimler/twitter.png" ></a>
+        </div>
+        <div class="footeric"><b>Site İçinceki Sekmelere buradan ulaşabilirsiniz</b>  <br /> <br /> <a href="index.php">Anasayfa</a> <br/> <br/> <a
+                href="Misyon.php">Misyon</a> <br /> <br />
+            <a href="Vizyon.php">Vizyon</a> <br /> <br /> <a href="Ozgecmis.php">Öz Geçmiş</a> <br /> <br /><a
+                href="Sosyalmedya.php">Sosyal Medya</a> <br /> <br />
+            <a href="Soru.php">Soru</a> <br /> </div>
+
+    </footer>
+</body>
+
+</html>
